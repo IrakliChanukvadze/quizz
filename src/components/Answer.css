@@ -1,0 +1,14 @@
+.answer-container {
+  font-family: "Karla";
+  font-style: normal;
+  padding: 10px 25px;
+  border: 1px solid #4d5b9e;
+  border-radius: 0.5rem;
+  margin: 20px 0px;
+  background-color: transparent;
+  color: #293264;
+}
+
+.checked {
+  background-color: #d6dbf5;
+}
