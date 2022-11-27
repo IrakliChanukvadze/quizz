@@ -1,8 +1,8 @@
 # quizz
 
-##Hi there,
+Hi there,
 
-###Test your Knowledge with my little quizz, with lots of questions.
+Test your Knowledge with my little quizz, with lots of questions.
 
 ## you can choose 
 
