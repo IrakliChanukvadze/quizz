@@ -6,8 +6,9 @@ function Quizz({ formData }) {
   const [questions, setQuestions] = useState([]);
   const [answered, setAnswered] = useState(false);
   const [count, setCount] = useState(0);
+  const [questNum, setQuestNum] = useState(0);
 
-  async function fetchQuestions(questionNumber) {
+  async function fetchQuestions(num) {
     const difficulty =
       formData.difficulty && `&difficulty=${formData.difficulty}`;
     const category = formData.category && `&category=${formData.category}`;
@@ -15,7 +16,7 @@ function Quizz({ formData }) {
     console.log(`dificulty: ${difficulty}`);
     console.log(`category: ${category}`);
     console.log(`type: ${type}`);
-    const fetchUrl = `https://opentdb.com/api.php?amount=${questionNumber}${difficulty}${category}${type}`;
+    const fetchUrl = `https://opentdb.com/api.php?amount=${num}${difficulty}${category}${type}`;
     const response = await fetch(fetchUrl);
     const data = await response.json();
     setQuestions(data.results);
@@ -23,9 +24,10 @@ function Quizz({ formData }) {
 
   useEffect(() => {
     if (window.innerHeight < 850) {
-      console.log("entered");
+      setQuestNum(3);
       fetchQuestions(3);
     } else {
+      setQuestNum(5);
       fetchQuestions(5);
     }
   }, []);
@@ -52,7 +54,11 @@ function Quizz({ formData }) {
       <div className="yellow"></div>
       <div className="blue"></div>
       <div className="questions-container">{questionJsx}</div>
-      {answered && <h2>You scored {count}/5 correct answers</h2>}
+      {answered && (
+        <h2>
+          You scored {count}/{questNum} correct answers
+        </h2>
+      )}
       <button
         className="quizz-button"
         onClick={() => {
