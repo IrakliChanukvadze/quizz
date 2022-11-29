@@ -5,3 +5,10 @@
 .form {
   margin-bottom: 30px;
 }
+
+@media screen and (max-width: 600px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -23,3 +23,13 @@
   line-height: 19px;
   color: #293264;
 }
+
+@media screen and (max-width: 900px) {
+  .answers-container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .question-container {
+    margin-bottom: 20px;
+  }
+}

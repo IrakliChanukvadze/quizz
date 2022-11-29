@@ -7,7 +7,7 @@ function Quizz({ formData }) {
   const [answered, setAnswered] = useState(false);
   const [count, setCount] = useState(0);
 
-  async function fetchQuestions() {
+  async function fetchQuestions(questionNumber) {
     const difficulty =
       formData.difficulty && `&difficulty=${formData.difficulty}`;
     const category = formData.category && `&category=${formData.category}`;
@@ -15,13 +15,19 @@ function Quizz({ formData }) {
     console.log(`dificulty: ${difficulty}`);
     console.log(`category: ${category}`);
     console.log(`type: ${type}`);
-    const fetchUrl = `https://opentdb.com/api.php?amount=5${difficulty}${category}${type}`;
+    const fetchUrl = `https://opentdb.com/api.php?amount=${questionNumber}${difficulty}${category}${type}`;
     const response = await fetch(fetchUrl);
     const data = await response.json();
     setQuestions(data.results);
   }
+
   useEffect(() => {
-    fetchQuestions();
+    if (window.innerHeight < 850) {
+      console.log("entered");
+      fetchQuestions(3);
+    } else {
+      fetchQuestions(5);
+    }
   }, []);
 
   const startAgain = () => {

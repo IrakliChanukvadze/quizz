@@ -23,7 +23,8 @@
 }
 
 .quizz-container {
-  height: 100vh;
+  height: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,6 +41,7 @@
   background: #4d5b9e;
   border-radius: 15px;
   border: none;
+  margin-top: 20px;
 }
 
 .quizz-button:active {
@@ -48,4 +50,11 @@
 
 .quizz-button:focus {
   outline: none;
+}
+
+@media screen and (max-width: 700px) {
+  .yellow,
+  .blue {
+    display: none;
+  }
 }

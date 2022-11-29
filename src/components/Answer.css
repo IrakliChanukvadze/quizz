@@ -12,3 +12,9 @@
 .checked {
   background-color: #d6dbf5;
 }
+
+@media screen and (max-width: 700px) {
+  .answer-container {
+    margin: 10px 0px;
+  }
+}
